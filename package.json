@@ -1,0 +1,20 @@
+{
+  "name": "html-exercise",
+  "version": "1.0.0",
+  "description": "A project to test a student's HTML exercise using npm test.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^24.1.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  }
+}
