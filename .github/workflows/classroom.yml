@@ -1,0 +1,70 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: 'T1: Document Head'
+      id: t1-document-head
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: 'T1: Document Head'
+        setup-command: npm install
+        command: npm test -- -t "T1"
+        timeout: 10
+        max-score: 1
+    - name: 'T2: Document Body'
+      id: t2-document-body
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: 'T2: Document Body'
+        setup-command: npm install
+        command: npm test -- -t "T2"
+        timeout: 10
+        max-score: 1
+    - name: 'T3: Hobbies List'
+      id: t3-hobbies-list
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: 'T3: Hobbies List'
+        setup-command: npm install
+        command: npm test -- -t "T3"
+        timeout: 10
+        max-score: 1
+    - name: 'T4: Favorite Quote Section'
+      id: t4-favorite-quote-section
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: 'T4: Favorite Quote Section'
+        setup-command: npm install
+        command: npm test -- -t "T4"
+        timeout: 10
+        max-score: 1
+    - name: 'T5: Hyperlink'
+      id: t5-hyperlink
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: 'T5: Hyperlink'
+        setup-command: npm install
+        command: npm test -- -t "T5"
+        timeout: 10
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        T1-DOCUMENT-HEAD_RESULTS: "${{steps.t1-document-head.outputs.result}}"
+        T2-DOCUMENT-BODY_RESULTS: "${{steps.t2-document-body.outputs.result}}"
+        T3-HOBBIES-LIST_RESULTS: "${{steps.t3-hobbies-list.outputs.result}}"
+        T4-FAVORITE-QUOTE-SECTION_RESULTS: "${{steps.t4-favorite-quote-section.outputs.result}}"
+        T5-HYPERLINK_RESULTS: "${{steps.t5-hyperlink.outputs.result}}"
+      with:
+        runners: t1-document-head,t2-document-body,t3-hobbies-list,t4-favorite-quote-section,t5-hyperlink
