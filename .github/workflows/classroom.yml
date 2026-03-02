@@ -19,7 +19,7 @@ jobs:
       with:
         test-name: 'T1: Document Head'
         setup-command: npm install
-        command: npm test -- -t "T1"
+        command: npm test -- -t "Document Head"
         timeout: 10
         max-score: 1
     - name: 'T2: Document Body'
@@ -28,7 +28,7 @@ jobs:
       with:
         test-name: 'T2: Document Body'
         setup-command: npm install
-        command: npm test -- -t "T2"
+        command: npm test -- -t "Document Body"
         timeout: 10
         max-score: 1
     - name: 'T3: Hobbies List'
@@ -37,7 +37,7 @@ jobs:
       with:
         test-name: 'T3: Hobbies List'
         setup-command: npm install
-        command: npm test -- -t "T3"
+        command: npm test -- -t "Hobbies List"
         timeout: 10
         max-score: 1
     - name: 'T4: Favorite Quote Section'
@@ -46,7 +46,7 @@ jobs:
       with:
         test-name: 'T4: Favorite Quote Section'
         setup-command: npm install
-        command: npm test -- -t "T4"
+        command: npm test -- -t "Favorite Quote Section"
         timeout: 10
         max-score: 1
     - name: 'T5: Hyperlink'
@@ -55,7 +55,7 @@ jobs:
       with:
         test-name: 'T5: Hyperlink'
         setup-command: npm install
-        command: npm test -- -t "T5"
+        command: npm test -- -t "Hyperlink"
         timeout: 10
         max-score: 1
     - name: Autograding Reporter
